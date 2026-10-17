@@ -1,0 +1,32 @@
+[
+  {
+    "no": 1,
+    "sinif": "Genel",
+    "konu": "Tehlike Sınıfları",
+    "soru": "6331 sayılı İş Sağlığı ve Güvenliği Kanunu'na göre işyerleri kaç tehlike sınıfına ayrılır?",
+    "secenekler": ["2", "3", "4", "5", "6"],
+    "dogru": "B",
+    "aciklama": "İşyerleri az tehlikeli, tehlikeli ve çok tehlikeli olmak üzere 3 sınıfa ayrılır. Tehlike sınıfı tebliğde NACE koduna göre belirlenir.",
+    "kaynak": "6331 sayılı Kanun, m.9"
+  },
+  {
+    "no": 2,
+    "sinif": "Genel",
+    "konu": "İş Kazası Bildirimi",
+    "soru": "İşveren, meydana gelen bir iş kazasını Sosyal Güvenlik Kurumu'na kazadan sonra en geç ne zaman bildirmelidir?",
+    "secenekler": ["Aynı gün", "1 iş günü içinde", "3 iş günü içinde", "7 gün içinde", "15 gün içinde"],
+    "dogru": "C",
+    "aciklama": "İş kazası, kazadan sonraki 3 iş günü içinde SGK'ya bildirilmelidir. Bildirim yapılmazsa idari para cezası uygulanır.",
+    "kaynak": "6331 sayılı Kanun, m.14; 5510 sayılı Kanun, m.13"
+  },
+  {
+    "no": 3,
+    "sinif": "C",
+    "konu": "Kenar Korkulukları",
+    "soru": "Yapı işlerinde kenar korkuluk sistemlerinde topuk levhasının yüksekliği en az kaç cm olmalıdır?",
+    "secenekler": ["5 cm", "10 cm", "15 cm", "25 cm", "50 cm"],
+    "dogru": "C",
+    "aciklama": "Topuk levhası en az 15 cm yükseklikte olmalıdır. Malzeme ve aletlerin aşağı düşmesini önler; üst korkuluk ise en az 100 cm yüksekliktedir.",
+    "kaynak": "Yapı İşlerinde İSG Yönetmeliği, Ek-4"
+  }
+]
