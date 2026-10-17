@@ -50,7 +50,7 @@ GRI = (170, 186, 206)
 KART = (24, 44, 78)
 
 SURE_KAPAK = 2.0
-SURE_GERI_SAYIM = 7          # saniye, soru ekranı
+SURE_GERI_SAYIM = 15         # saniye, soru ekranı
 SURE_CEVAP = 7.0
 SURE_KAPANIS = 2.5
 HARFLER = "ABCDE"
@@ -180,7 +180,7 @@ def sahne_kapak(soru) -> Image.Image:
         f3 = font(False, 48)
         d.text(((W - d.textlength(konu, font=f3)) / 2, 1080), konu, font=f3, fill=SARI)
     f4 = font(True, 44)
-    t = "7 saniyen var. Hazır mısın?"
+    t = f"{SURE_GERI_SAYIM} saniyen var. Hazır mısın?"
     d.text(((W - d.textlength(t, font=f4)) / 2, 1300), t, font=f4, fill=GRI)
     alt_serit(d)
     return img
@@ -290,7 +290,7 @@ def ses_uret(yol: Path, toplam: float, tik_zamanlari: list[float], ding_zamani: 
             buf[i] += genlik * math.sin(2 * math.pi * frek * t) * math.exp(-t * sonum)
 
     for t in tik_zamanlari:
-        ekle(t, 0.08, 1500, 0.35, 40)
+        ekle(t, 0.06, 900, 0.22, 60)
     for f_, g in ((880, 0.35), (1320, 0.25), (1760, 0.15)):
         ekle(ding_zamani, 1.2, f_, g, 3.5)
     for t in whoosh:
@@ -342,10 +342,10 @@ def video_uret(soru: dict, cikti: Path) -> Path:
 
         toplam = sum(s for _, s in parcalar)
         t_soru = SURE_KAPAK
-        tikler = [t_soru + i for i in range(SURE_GERI_SAYIM)]
+        tikler = [t_soru + i for i in range(max(0, SURE_GERI_SAYIM - 5), SURE_GERI_SAYIM)]
         t_cevap = t_soru + SURE_GERI_SAYIM
         ses = tmp / "ses.wav"
-        ses_uret(ses, toplam, tikler, t_cevap, [0.0, t_cevap + SURE_CEVAP])
+        ses_uret(ses, toplam, tikler, t_cevap, [])
 
         cikti.mkdir(parents=True, exist_ok=True)
         mp4 = cikti / f"soru_{no}.mp4"
