@@ -14,7 +14,7 @@ window.__dy=qb-c.offsetTop;exp.style.top=(qb+c.offsetHeight+22)+'px';})();
 '''
 def build(q, d):
     letters="ABCDE"; no=q.get("no",1); sec=q["secenekler"]; dog=letters.index(q["dogru"])
-    T=18.5; QS=2.0; AS=9.0; CS=16.0
+    n_=len(sec); QS=2.0; BS=QS+1.0+n_*.35+.4; AS=BS+15.0; CS=AS+7.0; T=CS+2.5
     e=html.escape
     opts=''.join(f'<div class="opt o{i}"><div class="g"></div><span class="lt">{letters[i]}</span><span class="ot">{e(s)}</span></div>' for i,s in enumerate(sec))
     box=f'''<div id="main" class="clip" data-start="0" data-duration="{T}" style="left:50px;top:190px;width:880px">
@@ -27,9 +27,10 @@ def build(q, d):
 <div class="cl">İsg <span style="color:#0B1F3A">Pro</span></div><div class="cn">SORU #{no}</div><div class="ck">{e(q["konu"])}</div></div>'''
     close=f'''<div id="cls" class="clip" data-start="{CS}" data-duration="{T-CS}" style="left:0;top:0;width:1080px;height:1920px;background:#0D1B2A">
 <div class="cc1">Her gün yeni soru için<br>abone ol!</div><div class="cc2">isg-pro.com</div></div>'''
-    bars=f'''<div id="trk" class="clip" data-start="{QS}" data-duration="{AS-QS}" style="left:50px;top:1440px;width:880px;height:22px;background:rgba(255,255,255,.2);border-radius:11px"></div>
-<div id="gb" class="clip" data-start="{QS}" data-duration="{AS-QS}" style="left:50px;top:1440px;width:880px;height:22px;background:#43A047;border-radius:11px;transform-origin:0 50%"></div>
-<div id="rb" class="clip" data-start="{QS}" data-duration="{AS-QS}" style="left:50px;top:1440px;width:880px;height:22px;background:#E53935;border-radius:11px;transform-origin:0 50%"></div>'''
+    bars=f'''<div id="trk" class="clip" data-start="{QS}" data-duration="{AS-QS}" style="left:50px;top:1440px;width:760px;height:22px;background:rgba(255,255,255,.2);border-radius:11px"></div>
+<div id="gb" class="clip" data-start="{QS}" data-duration="{AS-QS}" style="left:50px;top:1440px;width:760px;height:22px;background:#43A047;border-radius:11px;transform-origin:0 50%"></div>
+<div id="rb" class="clip" data-start="{QS}" data-duration="{AS-QS}" style="left:50px;top:1440px;width:760px;height:22px;background:#E53935;border-radius:11px;transform-origin:0 50%"></div>'''
+    digs=''.join(f'<div id="dg{k}" class="clip dg" data-start="{AS-5+k}" data-duration="1.0" style="left:830px;top:1408px;width:100px;text-align:center;font-size:84px;font-weight:700;color:#E53935">{5-k}</div>' for k in range(5))
     head=f'''<div id="band" class="clip" data-start="0" data-duration="{T}" style="left:0;top:0;width:1080px;height:150px;background:#FF8C00"></div>
 <div id="bt" class="clip" data-start="0" data-duration="{T}" style="left:0;top:38px;width:1080px;text-align:center;font-size:72px;font-weight:700;color:#0D1B2A">İSG-PRO.COM</div>
 '''
@@ -38,9 +39,9 @@ def build(q, d):
         f"gsap.set(['.tag','.q','.exp'],{{opacity:0}});tl.fromTo('.tag',{{opacity:0,x:-80}},{{opacity:1,x:0,duration:.5}},{QS+.2});tl.fromTo('.q',{{opacity:0,y:40}},{{opacity:1,y:0,duration:.6}},{QS+.5});",
         "gsap.set('.g',{opacity:0});gsap.set('.opt',{opacity:0});"]
     for i in range(len(sec)):
-        js.append(f"tl.fromTo('.o{i}',{{opacity:0,x:-120}},{{opacity:1,x:0,duration:.5}},{QS+1.2+i*.45:.2f});")
-    js.append(f"gsap.set(['#trk','#gb','#rb'],{{opacity:0}});tl.fromTo('#trk',{{opacity:0}},{{opacity:1,duration:.3}},{QS+.3});tl.fromTo('#gb',{{opacity:1,scaleX:1}},{{opacity:1,scaleX:0,duration:{AS-QS-.8},ease:'none'}},{QS+.8});tl.fromTo('#rb',{{opacity:0,scaleX:1}},{{opacity:1,scaleX:0,duration:{AS-QS-.8},ease:'none'}},{QS+.8});")
-    js.append(f"tl.to('#rb',{{opacity:0,duration:.1}},{QS+.8});tl.to('#rb',{{opacity:1,duration:2.0}},{QS+3.5});")
+        js.append(f"tl.fromTo('.o{i}',{{opacity:0,x:-120}},{{opacity:1,x:0,duration:.5}},{QS+1.0+i*.35:.2f});")
+    js.append(f"gsap.set(['#trk','#gb','#rb'],{{opacity:0}});tl.fromTo('#trk',{{opacity:0}},{{opacity:1,duration:.3}},{QS+.3});tl.fromTo('#gb',{{opacity:1,scaleX:1}},{{opacity:1,scaleX:0,duration:{AS-BS},ease:'none'}},{BS});tl.fromTo('#rb',{{opacity:0,scaleX:1}},{{opacity:1,scaleX:0,duration:{AS-BS},ease:'none'}},{BS});")
+    js.append(f"tl.to('#rb',{{opacity:0,duration:.1}},{BS});tl.to('#rb',{{opacity:1,duration:5.0}},{BS+10.0});")
     for i in range(len(sec)):
         if i==dog:
             js.append(f"tl.to('.o{i} .g',{{opacity:1,duration:.4}},{AS+.2});tl.fromTo('.o{i}',{{scale:1}},{{scale:1.04,duration:.25}},{AS+.2});tl.to('.o{i}',{{scale:1,duration:.25}},{AS+.5});tl.to('.o{i}',{{y:window.__dy,duration:.6}},{AS+.9});")
@@ -48,6 +49,8 @@ def build(q, d):
             js.append(f"tl.to('.o{i}',{{opacity:0,duration:.4}},{AS+.2});")
     js.append(f"tl.fromTo('.exp',{{opacity:0,y:50}},{{opacity:1,y:0,duration:.6}},{AS+1.0});")
     js.append(f"gsap.set(['.cc1','.cc2'],{{opacity:0}});gsap.set('#cls',{{opacity:0}});tl.fromTo('#cls',{{opacity:0}},{{opacity:1,duration:.4}},{CS});tl.fromTo('.cc1',{{opacity:0,y:-60}},{{opacity:1,y:0,duration:.5}},{CS+.2});tl.fromTo('.cc2',{{opacity:0,scale:.7}},{{opacity:1,scale:1,duration:.5}},{CS+.7});")
+    for k in range(5):
+        js.append(f"gsap.set('#dg{k}',{{opacity:0}});tl.fromTo('#dg{k}',{{opacity:0,scale:1.8}},{{opacity:1,scale:1,duration:.25}},{AS-5+k:.2f});")
     js.append(f"tl.to('#bt',{{opacity:1,duration:.1}},{T-.1});")
     css='''html,body{margin:0;background:#0D1B2A}#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0D1B2A;font-family:"DejaVu Sans",Arial,sans-serif}
 .clip{position:absolute;line-height:1.2}.tag{display:inline-block;padding:12px 28px;background:#162C44;color:#FF8C00;font-size:38px;font-weight:700;border-radius:20px;margin-bottom:24px}
@@ -66,7 +69,7 @@ def build(q, d):
     fit=FIT%dog
     page=f'''<!doctype html><html lang="tr"><head><meta charset="utf-8"><style>{css}</style><script src="gsap.min.js"></script></head><body>
 <div id="root" data-composition-id="root" data-width="1080" data-height="1920">
-{box}{bars}{cover}{close}{head}</div><script>
+{box}{bars}{digs}{cover}{close}{head}</div><script>
 const tl=gsap.timeline({{paused:true}});
 {fit}
 {chr(10).join(js)}
@@ -74,14 +77,14 @@ window.__timelines=window.__timelines||{{}};window.__timelines["root"]=tl;
 </script></body></html>'''
     os.makedirs(d,exist_ok=True); open(os.path.join(d,"index.html"),"w").write(page)
     shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)),"gsap.min.js"),d)
-    return T,QS,AS
+    return T,BS,AS
 def audio(path,QS,AS,T):
     # tik sesleri (her saniye) + doğru cevap "ding"
     ins=[]; fl=[]
     n=0
-    for k in range(int(AS-QS-1)):
+    for k in range(5):
         ins+=["-f","lavfi","-t","0.06","-i","sine=frequency=1200:sample_rate=44100"]
-        fl.append(f"[{n}:a]volume=2.0,adelay={int((QS+.9+k)*1000)}|{int((QS+.9+k)*1000)}[a{n}]"); n+=1
+        fl.append(f"[{n}:a]volume=2.0,adelay={int((AS-5+k)*1000)}|{int((AS-5+k)*1000)}[a{n}]"); n+=1
     ins+=["-f","lavfi","-t","0.7","-i","sine=frequency=880:sample_rate=44100"]
     fl.append(f"[{n}:a]afade=t=out:st=0.2:d=0.5,volume=2.5,adelay={int((AS+.2)*1000)}|{int((AS+.2)*1000)}[a{n}]"); n+=1
     mix="".join(f"[a{i}]" for i in range(n))
