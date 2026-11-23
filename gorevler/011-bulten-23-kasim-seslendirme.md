@@ -2,7 +2,7 @@
 
 Kapsam: ~/seslendirme (005/006'daki ortak Gemini TTS fonksiyonunu kullan). Mevcut cron'lara, ~/kissalar'a, ~/mp2 altın standardına DOKUNMA. API anahtarını yazdırma. Metinler Muhammet'ten geldi; METİNLERİ DEĞİŞTİRME, haber arama, yeniden yazma; sadece AYNEN seslendir. Bu görev 005 ve 006 bittikten sonra çalışsın.
 
-SESLER (Gemini TTS): mark.mp3 = Charon; muhammet.mp3 = Iapetus. İkisinde de "yavaş, sakin, net, cümleler arasında duraklayarak" prompt'u, ardından ffmpeg atempo=0.80, cümle aralarına 0,5 sn sessizlik, 44100 Hz mono. Hedef 4,2-4,8 hece/sn; ölç ve raporla. Uzun metni cümle gruplarına (<=400 karakter) bölüp ayrı üret, ffmpeg ile birleştir; birleşim yerlerinde ses seviyesi eşit kalsın.
+SESLER (Gemini TTS): mark.mp3 = Iapetus; muhammet.mp3 = Charon. İkisinde de "yavaş, sakin, net, cümleler arasında duraklayarak" prompt'u, ardından ffmpeg atempo=0.80, cümle aralarına 0,5 sn sessizlik, 44100 Hz mono. Hedef 4,2-4,8 hece/sn; ölç ve raporla. Uzun metni cümle gruplarına (<=400 karakter) bölüp ayrı üret, ffmpeg ile birleştir; birleşim yerlerinde ses seviyesi eşit kalsın.
 
 TESLİM: mark.mp3 ve muhammet.mp3 dosyalarını muhammet-coder/isg-shorts deposunda "ciktilar" dalına bulten/2026-11-23/ klasörüyle commit edip push et (anahtar dosyaları ASLA ekleme). Telegram'a iki ses dosyasını gönder; mesajda süreler ve hece/sn.
 
