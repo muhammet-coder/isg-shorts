@@ -1,3 +1,4 @@
+# (011 limit hatasi nedeniyle yeniden gonderildi; once ~/mp2/.env anahtarini ve Gemini TTS yolunu kullan, bitince Telegram bildir)
 # Görev 011: 23 Kasım 2026 bülteni, Mark ve Muhammet bölümlerinin seslendirmesi
 
 Kapsam: ~/seslendirme (005/006'daki ortak Gemini TTS fonksiyonunu kullan). Mevcut cron'lara, ~/kissalar'a, ~/mp2 altın standardına DOKUNMA. API anahtarını yazdırma. Metinler Muhammet'ten geldi; METİNLERİ DEĞİŞTİRME, haber arama, yeniden yazma; sadece AYNEN seslendir. Bu görev 005 ve 006 bittikten sonra çalışsın.
