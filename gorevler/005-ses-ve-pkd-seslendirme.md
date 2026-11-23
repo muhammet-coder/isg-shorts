@@ -17,3 +17,5 @@ sahne5: Buharın rüzgârla nereye taşındığını open foam simülasyonuyla h
 sahne6: Unutulan risk, statik elektrik. Araçtan inen müşterinin üzerinde biriken yük, dolum anında ateşleme kaynağı olabilir. Önlem raporda açıkça yazılır.
 sahne7: On üç ateşleme kaynağı tek tek değerlendirilir. Ex ekipman uygunluğu, bakım programı ve acil durum önlemleri aynı dokümanda toplanır.
 sahne8: i se ge pro ile belge isteme, termin takibi ve kurulum onayı tek yerden yönetilir. Adres: i se ge pro nokta kom.
+
+EK (Charon örneği incelendi): Gemini TTS çalışıyor (Charon, 6,3 sn örnek geldi). Ancak aynı ölçüm yönteminde bu örnek, Muhammet'in "gayet iyi" bulduğu edge-tts videosundan ~%40 daha hızlı. PKD seslendirmesinde (ve Gemini sesi kullanılan her yerde): önce prompt'ta "yavaş, sakin, net, cümleler arasında duraklayarak" iste, sonra her mp3'e ffmpeg atempo=0.80 uygula (gerekirse 0.75); cümleler arası 0,5 sn sessizlik. Her sahneyi ffprobe ile ölç ve hızı 4,2-4,8 hece/sn aralığında tut (hece = Türkçe sesli harf sayısı / konuşma süresi). Hız ve süreleri raporla.
