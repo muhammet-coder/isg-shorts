@@ -1,0 +1,10 @@
+# Görev 010: mp2 için daha kaliteli (ücretsiz) arka plan görselleri — DENEME
+
+Kapsam: ~/mp2 ve shorts_mp2.py. Altın standart (007+008 videosu: şablon kartlar, ses hızı, yazı boyutları) BOZULMAYACAK; görsel yalnızca isteğe bağlı arka plan katmanı olacak ve ayrı bir "gorselli" sürüm olarak üretilecek. Mevcut şablon kartlı sürüm de yanında gönderilmeye devam eder. Anahtarları yazdırma.
+
+NEDEN: Önceki Pollinations görselleri düşük kalite ve filigranlıydı (bozuk yüzler, görselde anlamsız yazı). Gemini görsel üretimi ücretsiz katmanda kota 0 (429). Ücretsiz yollarla kaliteyi artırmayı dene:
+
+1. POLLINATIONS'I DOĞRU AYARLARLA DENE (görsel API): güncel en iyi modeli (model=flux veya sitedeki güncel model listesi: https://image.pollinations.ai/models), width=1080 height=1920, nologo=true (filigransız seçenek; ücretsiz kayıt/token gerekiyorsa gerekçesini raporla, hesap açma, bana yaz), seed sabit. Filigranı kırpma/örtme/silme YAPMA; filigran çıkıyorsa o görseli kullanma.
+2. PROMPT KURALLARI: yüz yakın çekimi YOK, insan yüzü gerekmiyorsa arkadan veya uzaktan çekim; "photorealistic construction site, scaffolding, safety helmet and harness, overcast daylight, shallow depth of field, no text, no watermark, no logo" tarzı; görselde yazı yok. Her sahne için 2 görsel üret, kendin değerlendir (Read ile görüntüle): bozuk yüz/eller, anlamsız yazı, filigran (sağ alt köşe dahil) varsa REDDET ve yeniden dene (en çok 3 deneme).
+3. KULLANIM: görseli 1080x1920'ye kırp, hafif Ken Burns (yavaş zoom %5-8), üstüne koyu katman (#0D1B2A, %60-70 opaklık) ve bulanıklık ver; kart ve yazı mevcut düzenle AYNEN üstte kalsın. Her görsel en az 6 sn, arka arkaya aynı görsel yok. Videonun sonuna ve başına "Temsili görsel (yapay zekâ ile üretilmiştir)" küçük notu (30 px) ekle.
+4. ÇIKTI: aynı konu (iskele) için iki video: (a) mevcut şablon kartlı altın standart, (b) görselli sürüm. İkisini de Telegram'a gönder; raporda: hangi model, kaç görsel reddedildi ve neden, filigran/yüz bozukluğu kaldı mı, görselli sürümü önerir misin (evet/hayır ve gerekçe). Görsel kalitesi yeterli değilse görselli sürümü gönderme, nedenini yaz.
