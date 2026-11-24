@@ -1,0 +1,24 @@
+r00
+metin: Polis ekipleri soruşturma başlattı, düşmenin nedeni henüz açıklanmadı. Yeni habere geçiyorum. İstanbul Güngören ilçesi Merkez Mahallesinde bir inşaatın temel kazısında toprak kaydı.
+karakter: 181
+ham sure: 16.49 sn
+hece: 66
+hece/sn (ham): 4.00
+ham sessizlik (>=0.5 sn, -40dB, ham dosya saniyesi): 7.988792-8.798917 sn
+
+r01
+metin: Toprağın altında kalan işçi Mustafa Sekmen, itfaiye ve sağlık ekiplerince çıkarılıp hastaneye kaldırıldı, ancak yapılan müdahaleye rağmen kurtarılamadı.
+karakter: 152
+ham sure: 13.33 sn
+hece: 57
+hece/sn (ham): 4.28
+ham sessizlik (>=0.5 sn, -40dB, ham dosya saniyesi): 9.055542-9.672708 sn
+
+r02
+metin: Haberlere göre belediye ekipleri şantiyede çalışmayı durdurdu, iş makinesi operatörü ile bir şirket çalışanı emniyete götürüldü. Soruşturma sürüyor. Konuyla ilgili uzman görüşünü paylaşması için sözü Muhammet beye bırakıyorum.
+karakter: 226
+ham sure: 24.57 sn
+hece: 89
+hece/sn (ham): 3.62
+ham sessizlik (>=0.5 sn, -40dB, ham dosya saniyesi): 1.356792-1.948083 sn; 3.345542-3.961792 sn; 6.187583-7.46975 sn; 9.3445-9.9845 sn; 11.447875-12.111833 sn; 13.352375-14.809208 sn; 16.231417-17.986458 sn; 19.02775-19.619125 sn; 21.728833-22.30625 sn
+not: r02 en uzun sessizlik 17.99'da biten 16.23-17.99 sn (1.76 sn) ve 13.35-14.81 (1.46 sn); ham dosya saniyesi, atempo oncesi.
