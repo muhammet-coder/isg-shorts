@@ -1,0 +1,6 @@
+# Gorev 014: Kissalar ajani bugun (24 Kasim) calismadi; nedenini bul, bugunku kissayi uret
+DOKUNMA: shorts, bulten, mail, LinkedIn akislari ve diger gorevler (013 bulten sesi dahil). Sadece ~/kissalar.
+1) NEDEN: ~/kissalar cron satirini ve son log/hata kayitlarini incele (08:00 TRT koşusu neden Telegram'a paket gondermedi?). Olasi nedenler: Claude kullanim limiti, ElevenLabs kredi/abonelik bitti, cron/oturum. Nedeni Telegram'a tek satir yaz.
+2) URET: Daha once islenmemis, yeni bir Kuran kıssası sec (defterdeki listeye bak, tekrar etme). Kurallar aynen: peygamber/melek/sahabe yuzu ASLA gosterilmez (isik, siluet, sirttan gorunus, el, golge, doga); tek videoda biten bagimsiz mini hikaye (seri yok); sahne istemleri Turkce; kodla (SVG) cizim yontemi; anlatici: ElevenLabs "Adam - Deep, Professional" (voice_id J17lijyP1BHYcM7ld0Rg). Ayet/hadis ve ismi dogrulanmis kaynaktan ver; emin olmadigin ayet metnini yazma.
+3) SES: ElevenLabs kredisi bittiyse veya hata verirse faturalandirma/abonelik ACMA; yedek olarak ~/mp2/venv icindeki edge-tts (tr-TR-AhmetNeural, rate -8%) ile sesi uret ve Telegram mesajinda "yedek ses kullanildi" yaz. Gemini TTS'i KULLANMA (gunluk kota 013 gorevine ayrildi).
+4) Paketi her zamanki gibi Telegram'a gonder. Sabit hata varsa (limit vb.) bekleme: ertesi calismada devam eder, bildir.
