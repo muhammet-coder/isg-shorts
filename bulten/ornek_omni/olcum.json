@@ -1,0 +1,16 @@
+{
+ "mark": {
+  "uretim_sn": 722.2,
+  "ses_sn": 13.8,
+  "RTF": 52.33,
+  "hece": 91,
+  "hece_sn": 6.59
+ },
+ "adam": {
+  "uretim_sn": 609.5,
+  "ses_sn": 10.07,
+  "RTF": 60.52,
+  "hece": 52,
+  "hece_sn": 5.16
+ }
+}
