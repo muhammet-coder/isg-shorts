@@ -1,9 +1,9 @@
-# Gorev 016: Site guncelleme akisini yeni ajana tasi (eski "Claude bot" suresi bitti)
-DURUM: Muhammet site guncellemelerini (zip) bir Telegram botuna atiyordu; o bot (ucretli surumde kurulmustu) yayinliyordu, aboneligi bitti. Dunku "is ilanlari" sayfasi bu yuzden yayinlanmadi (GitHub muhammet-coder/isg-pro-app deposuna 23 Kasim'dan beri commit yok). Site sunucusunda (Radore) surum d8f9659 = depodaki seo-guncelleme-v88 dali ucu; sunucu bu daldan guncelleniyor (Sitekontrol/n8n akisi, SEN ORAYA BAGLANMA).
-HEDEF: Muhammet @isgpro_asistan_bot'a (ya da Telegram'a) site zip'i atinca sen: indir, gecici klasorde ac, icerik ozetini cikar (hangi dosyalar yeni/degisti), mevcut isg-pro-app seo-guncelleme-v88 dali uzerine uygula (silme yok, sadece ekle/guncelle), tek commit yap, ayni dala push et, Telegram'a "yuklendi: <commit>, sunucu ~5 dk icinde guncellenir" yaz. 
-ADIMLAR:
-1) Once ~/isgpro altinda Telegram'dan zip indirme betigi var mi bak (telegram-video-indir.sh benzeri); zip icin uyarla.
-2) isg-pro-app deposuna bu sunucudan push yetkisi (deploy key/token) var mi kontrol et. YOKSA: dur, Muhammet'e Telegram'da tek satirla ne gerektigini yaz (token'i sohbete yazdirma, read -rsp ile .env'e girilecek).
-3) Calismazsa hata Telegram'a gitsin; sessizce bozma. Silme/force-push YASAK. main dalina dokunma, sadece seo-guncelleme-v88.
-4) Muhammet'in dunku is ilanlari zip'i bu bota atilmadiysa Telegram'da "zip'i bana at" diye hatirlat.
-KISITLAR: Radore sunucusuna baglanma; 013 (bulten sesi), 014 (kissalar) gorevlerine dokunma. Anahtarlari yazdirma.
+# Gorev 016 (GUNCEL): Site degisiklik taleplerini Telegram mesajiyla alip yayinlayan akis (eski "Claude bot" yerine)
+DURUM: Muhammet site degisikliklerini ZIP degil, bir Telegram botuna YAZILI MESAJLA ("su sayfayi ekle/degistir") bildiriyordu; eski Claude tabanli bot bunu isleyip yayinliyordu, aboneligi bitti. Dunku "is ilanlari" talebi bu yuzden yayinlanmadi (GitHub muhammet-coder/isg-pro-app'e 23 Kasim'dan beri commit yok). Site sunucusu (Radore) seo-guncelleme-v88 dalindan otomatik guncelleniyor; SEN ORAYA BAGLANMA, sadece depoya push.
+HEDEF: @isgpro_asistan_bot'a gelen mesajlardan "site:" ile baslayanlari (ornek: "site: is ilanlari sayfasi ekle ...") 5 dakikada bir tarayan bir akis kur:
+1) Telegram getUpdates ile yeni "site:" mesajlarini oku (offset dosyasi tut, ayni mesaji iki kez isleme; sadece Muhammet'in chat id'sinden gelenleri kabul et).
+2) isg-pro-app deposunu (seo-guncelleme-v88 dali) ~/site-calisma altinda klonla/guncelle; talebi `claude -p` ile uygula (var olan sayfa/dizin yapisina uy; yeni sayfa ise menuye/sitemap'e ekle; mevcut icerigi SILME; mevzuat/rakam uydurma, emin degilsen "ornek" diye isaretle).
+3) Degisiklikleri kisa ozetle, TEK commit yap, ayni dala push et (force-push YASAK, main'e dokunma). Telegram'a "yuklendi: <commit> - ne eklendi (2 satir); sunucu ~5 dk icinde alir" yaz.
+4) Hata/limit olursa Telegram'a tek mesaj; sessizce bozma. Ayni talebi sonsuz deneme: en fazla 2.
+5) Depoya push yetkisi (deploy key/token) bu sunucuda yoksa DUR; Telegram'a tek satirla ne gerektigini yaz (anahtari sohbete yazdirma; read -rsp ile .env'e girilecek).
+KISITLAR: Radore sunucusuna baglanma; 013 (bulten sesi) ve 014 (kissalar) gorevlerine dokunma; anahtarlari yazdirma.
